@@ -6,6 +6,6 @@ import androidx.databinding.BindingAdapter
 @BindingAdapter(value = ["setPrice"])
 fun setUpPriceTextView(nTextView: TextView?, nPriceInt: Int?) {
     if (nTextView != null && nPriceInt != null) {
-        nTextView.setText(nPriceInt.toString())
+        nTextView.setText(nPriceInt.toString() + " EUR")
     }
 }

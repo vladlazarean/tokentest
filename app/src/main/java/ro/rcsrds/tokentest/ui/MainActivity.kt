@@ -7,5 +7,6 @@ class MainActivity : MainActivityBase() {
         super.onCreate(savedInstanceState)
         setupDataBindingAndVM()
         setupMenuDrawer()
+        setupFlags()
     }
 }

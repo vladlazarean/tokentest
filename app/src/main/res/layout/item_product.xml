@@ -14,12 +14,12 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/product"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="200dp"
-        app:cardElevation="30dp"
+        android:layout_marginBottom="30dp"
+        app:cardElevation="10dp"
         app:cardCornerRadius="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,14 +39,14 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="200dp"
-                android:layout_height="300dp"
+                android:layout_width="203dp"
+                android:layout_height="305dp"
                 android:layout_marginTop="10dp"
-                bind:setImageRes="@{vRow.mImage}"
-                app:layout_constraintStart_toStartOf="parent"
+                android:contentDescription="@string/productimage"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title"
-                android:contentDescription="@string/productimage" />
+                bind:setImageRes="@{vRow.mImage}" />
 
             <TextView
                 android:id="@+id/price"
@@ -60,6 +60,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/image"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
+            <Button
+                android:id="@+id/quantity_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toEndOf="@+id/price"
+                app:layout_constraintTop_toTopOf="@+id/price"
+                app:layout_constraintBottom_toBottomOf="@+id/price"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,8 +13,10 @@ import android.net.Uri
 
 import android.view.Menu
 import ro.rcsrds.tokentest.R
+import ro.rcsrds.tokentest.model.UiBasket
 import ro.rcsrds.tokentest.model.UiProduct
 import ro.rcsrds.tokentest.tools.interfaces.ProductSelectInterface
+import ro.rcsrds.tokentest.ui.other.CallableStates
 
 
 open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, ProductSelectInterface {
@@ -43,6 +45,36 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
 
     }
 
+    fun setupFlags() {
+        with(mViewModel) {
+            mFlagGetProducts.observe(this@MainActivityBase) { nFlag ->
+                when(nFlag) {
+                    CallableStates.SUCCESS -> {
+                        // do other actions if this list is needed
+                    }
+
+                    CallableStates.ERROR -> {
+                        // show dialog or send error to crashlytics or other catchers
+                    }
+                    else -> {}
+                }
+            }
+
+            mFlagUpdateBasket.observe(this@MainActivityBase) { nFlag ->
+                when(nFlag) {
+                    CallableStates.SUCCESS -> {
+                        // do other actions if this list is needed
+                    }
+
+                    CallableStates.ERROR -> {
+                        // show dialog or send error to crashlytics or other catchers
+                    }
+                    else -> {}
+                }
+            }
+        }
+    }
+
     fun selectPayment() {
 
     }
@@ -51,7 +83,7 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
         super.onBackPressed()
     }
 
-    fun selectLanguageSelector() {
+    fun selectLanguage() {
 
     }
 
@@ -62,8 +94,8 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
             .putExtra(Intent.EXTRA_TEXT, "E-mail body"))
     }
 
-    override fun onProductSelected(nUiProduct: UiProduct) {
-        mViewModel.addProductToBasket(nUiProduct)
+    override fun onProductSelected(nUiBasket: UiBasket) {
+        mViewModel.addProductToBasket(nUiBasket)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -71,5 +103,6 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
         selectContact()
         return true
     }
+
 
 }
