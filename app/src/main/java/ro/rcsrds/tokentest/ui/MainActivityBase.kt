@@ -64,6 +64,10 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
                 when(nFlag) {
                     CallableStates.SUCCESS -> {
                         // do other actions if this list is needed
+                        // notify the data so that the bindingAdapter is called, we can make this in other ways:
+                        // 1. get the list in updateBasketSuccess, make the modification on that list and then posting it back to the mutableLiveData
+                        // 2. we can set a triggerFlag, update it here, and use it as param in bindingAdapter
+                        mProductsBasket.postValue(mProductsBasket.value)
                     }
 
                     CallableStates.ERROR -> {

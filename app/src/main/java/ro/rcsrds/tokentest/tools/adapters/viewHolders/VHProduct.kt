@@ -19,16 +19,13 @@ class VHProduct(nItemView: View): RecyclerView.ViewHolder(nItemView) {
     lateinit var mInterface: ProductSelectInterface
     lateinit var mRow: UiProduct
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun bindUiData(nRow: UiProduct, nInterface: ProductSelectInterface) {
         mInterface = nInterface
         mRow = nRow
 
         DataBindingUtil.getBinding<ItemProductBinding>(itemView)?.let {
             it.vRow = nRow
-            it.addB.setOnClickListener { view ->
-                setDialog(nRow.mTitle)
-            }
+            it.addB.setOnClickListener { setDialog(nRow.mTitle) }
             it.executePendingBindings()
         }
     }
