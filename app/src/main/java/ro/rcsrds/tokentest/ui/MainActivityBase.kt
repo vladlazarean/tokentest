@@ -45,6 +45,14 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
 
     }
 
+    fun setExitListener() {
+        if (::mBinding.isInitialized) {
+            mBinding.exit.setOnClickListener {
+                finishAffinity()
+            }
+        }
+    }
+
     fun setupFlags() {
         with(mViewModel) {
             mFlagGetProducts.observe(this@MainActivityBase) { nFlag ->

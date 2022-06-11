@@ -34,6 +34,17 @@
             android:layout_height="match_parent"
             tools:context=".ui.MainActivity">
 
+            <ImageView
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_standard"
+                android:src="@drawable/baseline_close_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/recycler"
+                android:contentDescription="@string/exit_button" />
+
             <TextView
                 android:id="@+id/basket_num"
                 android:layout_width="wrap_content"

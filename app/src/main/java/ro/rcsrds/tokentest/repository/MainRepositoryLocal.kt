@@ -10,7 +10,7 @@ class MainRepositoryLocal {
         val mProductsListTemp = arrayListOf<UiProduct>()
 
         repeat(mCountTemp) {
-            mProductsListTemp.add(UiProduct(mImage = mImages[it], mTitle = mTitles[it], mPrice = mPrices[it]))
+            mProductsListTemp.add(UiProduct(mImage = mImages[it], mTitle = mTitles[it], mPrice = mPrices[it], mId = mIds[it]))
         }
 
         return mProductsListTemp
@@ -45,6 +45,19 @@ class MainRepositoryLocal {
 
 
     private val mPrices = arrayOf(
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    )
+
+    private val mIds = arrayOf(
         1,
         2,
         3,

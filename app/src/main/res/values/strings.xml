@@ -5,7 +5,7 @@
 
     <string name="warning_ammount">The ammount has to be bigger than 0</string>
     <string name="warning_added">Product added</string>
-
+    <string name="exit_button">exit button</string>
 
 
 </resources>

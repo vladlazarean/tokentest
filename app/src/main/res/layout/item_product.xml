@@ -71,6 +71,16 @@
                 app:layout_constraintBottom_toBottomOf="@+id/price"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
+            <EditText
+                android:id="@+id/quantity"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/addB"
+                app:layout_constraintTop_toTopOf="@+id/addB"
+                app:layout_constraintEnd_toStartOf="@+id/price"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

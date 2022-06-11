@@ -5,7 +5,7 @@ import ro.rcsrds.tokentest.model.UiProduct
 
 class UiMainHorizontalComparator: DiffUtil.ItemCallback<UiProduct>() {
     override fun areItemsTheSame(oldItem: UiProduct, newItem: UiProduct): Boolean {
-        return oldItem.mTitle == newItem.mTitle
+        return oldItem.mId == newItem.mId
     }
 
     override fun areContentsTheSame(oldItem: UiProduct, newItem: UiProduct): Boolean {

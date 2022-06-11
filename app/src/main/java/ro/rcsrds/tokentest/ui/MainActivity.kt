@@ -8,5 +8,6 @@ class MainActivity : MainActivityBase() {
         setupDataBindingAndVM()
         setupMenuDrawer()
         setupFlags()
+        setExitListener()
     }
 }
