@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import ro.rcsrds.tokentest.R
 import ro.rcsrds.tokentest.databinding.ItemProductBinding
 import ro.rcsrds.tokentest.model.UiBasket
 import ro.rcsrds.tokentest.model.UiProduct
@@ -25,7 +26,7 @@ class VHProduct(nItemView: View): RecyclerView.ViewHolder(nItemView) {
 
         DataBindingUtil.getBinding<ItemProductBinding>(itemView)?.let {
             it.vRow = nRow
-            it.quantityAdd.setOnClickListener { view ->
+            it.addB.setOnClickListener { view ->
                 setDialog(nRow.mTitle)
             }
             it.executePendingBindings()
@@ -33,26 +34,26 @@ class VHProduct(nItemView: View): RecyclerView.ViewHolder(nItemView) {
     }
 
     private fun setDialog(nTitle: String) {
-        val mBuilder: AlertDialog.Builder = AlertDialog.Builder(itemView.context)
-        mBuilder.setTitle(nTitle)
         val mInput = EditText(itemView.context)
         mInput.hint = "Add ammount"
         mInput.inputType = InputType.TYPE_CLASS_NUMBER
-        mBuilder.setView(mInput)
-        mBuilder.setPositiveButton("OK") { dialog, which ->
-            if (!mInput.text.toString().isEmpty()) { addProductQuantityToBasket(mInput.text.toString().toInt()) }
-        }
-        mBuilder.setNegativeButton("Cancel") { dialog, which -> dialog.cancel() }
 
-        mBuilder.show()
+        AlertDialog.Builder(itemView.context)
+            .setTitle(nTitle)
+            .setView(mInput)
+            .setPositiveButton("OK") { dialog, which ->
+                if (!mInput.text.toString().isEmpty()) { addProductQuantityToBasket(mInput.text.toString().toInt()) }
+            }
+            .setNegativeButton("Cancel") { dialog, which -> dialog.cancel() }
+            .show()
     }
 
     private fun addProductQuantityToBasket(nQuantity: Int) {
         if (nQuantity == 0) {
-            Toast.makeText(itemView.context, "The ammount has to be bigger than 0", Toast.LENGTH_LONG).show()
+            Toast.makeText(itemView.context, itemView.resources.getText(R.string.warning_ammount), Toast.LENGTH_LONG).show()
         } else {
             mInterface.onProductSelected(UiBasket().apply { mQuantity = nQuantity; mUiProduct = mRow })
-            Toast.makeText(itemView.context, "Product added", Toast.LENGTH_LONG).show()
+            Toast.makeText(itemView.context, itemView.resources.getText(R.string.warning_added), Toast.LENGTH_LONG).show()
         }
 
     }

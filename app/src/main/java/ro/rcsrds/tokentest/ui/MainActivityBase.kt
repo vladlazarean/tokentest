@@ -40,8 +40,8 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
     }
 
     fun setupMenuDrawer() {
-        mBinding.navView.setNavigationItemSelectedListener(this)
-        mBinding.navView.bringToFront()
+        mBinding.navigation.setNavigationItemSelectedListener(this)
+        mBinding.navigation.bringToFront()
 
     }
 
