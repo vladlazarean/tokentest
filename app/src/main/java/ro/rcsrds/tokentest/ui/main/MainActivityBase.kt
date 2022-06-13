@@ -1,37 +1,40 @@
-package ro.rcsrds.tokentest.ui
+package ro.rcsrds.tokentest.ui.main
 
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.navigation.NavigationView
 import ro.rcsrds.tokentest.databinding.ActivityMainBinding
 import android.content.Intent
 import android.net.Uri
-
-import android.view.Menu
+import android.view.View
+import androidx.navigation.Navigation
 import ro.rcsrds.tokentest.R
 import ro.rcsrds.tokentest.model.UiBasket
-import ro.rcsrds.tokentest.model.UiProduct
+import ro.rcsrds.tokentest.tools.interfaces.ButtonActionsInterface
 import ro.rcsrds.tokentest.tools.interfaces.ProductSelectInterface
 import ro.rcsrds.tokentest.ui.other.CallableStates
 
 
-open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, ProductSelectInterface {
+
+open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
+    ProductSelectInterface, ButtonActionsInterface {
 
     lateinit var mBinding: ActivityMainBinding
-    lateinit var mViewModel: MainViewModel
+    lateinit var mViewModel: SharedActivityViewModel
 
     fun setupDataBindingAndVM() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        mViewModel = ViewModelProvider(this)[SharedActivityViewModel::class.java]
         lifecycle.addObserver(mViewModel)
 
         with (mBinding) {
             vActivity = this@MainActivityBase as MainActivity
             vViewModel = mViewModel
+            vTapInterface = this@MainActivityBase
+
             lifecycleOwner = this@MainActivityBase
             executePendingBindings()
         }
@@ -42,15 +45,19 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
     fun setupMenuDrawer() {
         mBinding.navigation.setNavigationItemSelectedListener(this)
         mBinding.navigation.bringToFront()
-
     }
 
-    fun setExitListener() {
-        if (::mBinding.isInitialized) {
-            mBinding.exit.setOnClickListener {
-                finishAffinity()
-            }
-        }
+    override fun onExitTap() {
+        finishAffinity()
+    }
+
+    override fun onPaymentTap() {
+        mBinding.navHostFragment.bringToFront()
+
+        //TODO: **1 de verificat treaba asta, de ce butonul iese in prim plan
+        mBinding.pay.visibility = View.GONE
+
+        Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.payFragment)
     }
 
     fun setupFlags() {
@@ -87,14 +94,6 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
         }
     }
 
-    fun selectPayment() {
-
-    }
-
-    fun selectBack() {
-        super.onBackPressed()
-    }
-
     fun selectLanguage() {
 
     }
@@ -116,5 +115,8 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
         return true
     }
 
-
+    fun setViewsBack() {
+        //TODO: **1 de verificat treaba asta
+        mBinding.pay.visibility = View.VISIBLE
+    }
 }

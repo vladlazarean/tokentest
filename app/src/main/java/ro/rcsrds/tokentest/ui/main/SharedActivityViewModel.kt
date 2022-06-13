@@ -1,4 +1,4 @@
-package ro.rcsrds.tokentest.ui
+package ro.rcsrds.tokentest.ui.main
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -9,7 +9,7 @@ import ro.rcsrds.tokentest.model.UiProduct
 import ro.rcsrds.tokentest.repository.MainRepository
 import ro.rcsrds.tokentest.ui.other.CallableStates
 
-class MainViewModel(application: Application): AndroidViewModel(application), LifecycleObserver {
+class SharedActivityViewModel(application: Application): AndroidViewModel(application), LifecycleObserver {
 
     private val mRepository = MainRepository(this)
     val mProductsList = MutableLiveData(ArrayList<UiProduct>())

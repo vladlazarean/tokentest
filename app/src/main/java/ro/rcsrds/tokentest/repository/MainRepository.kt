@@ -5,10 +5,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ro.rcsrds.tokentest.model.UiBasket
-import ro.rcsrds.tokentest.model.UiProduct
-import ro.rcsrds.tokentest.ui.MainViewModel
+import ro.rcsrds.tokentest.ui.main.SharedActivityViewModel
 
-class MainRepository(mViewModel: MainViewModel): MainRepositoryBase(mViewModel) {
+class MainRepository(mViewModel: SharedActivityViewModel): MainRepositoryBase(mViewModel) {
 
     fun getProductsData() {
         mViewModel.viewModelScope.launch(errorGetProducts) {

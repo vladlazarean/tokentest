@@ -3,10 +3,10 @@ package ro.rcsrds.tokentest.repository
 import kotlinx.coroutines.CoroutineExceptionHandler
 import ro.rcsrds.tokentest.model.UiBasket
 import ro.rcsrds.tokentest.model.UiProduct
-import ro.rcsrds.tokentest.ui.MainViewModel
+import ro.rcsrds.tokentest.ui.main.SharedActivityViewModel
 import ro.rcsrds.tokentest.ui.other.CallableStates
 
-open class MainRepositoryBase(protected val mViewModel: MainViewModel) {
+open class MainRepositoryBase(protected val mViewModel: SharedActivityViewModel) {
 
     protected val mRepositoryLocal = MainRepositoryLocal()
 

@@ -10,7 +10,7 @@ import ro.rcsrds.tokentest.R
 import ro.rcsrds.tokentest.model.UiProduct
 import ro.rcsrds.tokentest.tools.adapters.viewHolders.VHProduct
 import ro.rcsrds.tokentest.tools.interfaces.ProductSelectInterface
-import ro.rcsrds.tokentest.ui.MainActivity
+import ro.rcsrds.tokentest.ui.main.MainActivity
 
 class AdapterMainHorizontal(private val mActivity: MainActivity): ListAdapter<UiProduct, RecyclerView.ViewHolder>(UiMainHorizontalComparator()) {
 

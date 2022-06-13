@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/payFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:tag = "main"
+        android:name="ro.rcsrds.tokentest.ui.main.MainActivity"
+        android:label="Main"
+        tools:layout="@layout/activity_main" />
+
+    <fragment
+        android:id="@+id/payFragment"
+        android:tag = "pay"
+        android:name="ro.rcsrds.tokentest.ui.pay.PayFragment"
+        android:label="@string/pay"
+        tools:layout="@layout/fragment_pay">
+    </fragment>
+
+
+</navigation>
