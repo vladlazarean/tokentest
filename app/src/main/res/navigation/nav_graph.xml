@@ -8,14 +8,14 @@
     <fragment
         android:id="@+id/homeFragment"
         android:tag = "pay"
-        android:name="ro.rcsrds.tokentest.ui.home.HomeFragment"
+        android:name="ro.rcsrds.tokentest.ui.fragments.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/payFragment"
         android:tag = "pay"
-        android:name="ro.rcsrds.tokentest.ui.pay.PayFragment"
+        android:name="ro.rcsrds.tokentest.ui.fragments.pay.PayFragment"
         android:label="@string/pay"
         tools:layout="@layout/fragment_pay"/>
 

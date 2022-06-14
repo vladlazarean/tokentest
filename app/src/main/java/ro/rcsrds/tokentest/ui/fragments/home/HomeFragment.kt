@@ -1,4 +1,4 @@
-package ro.rcsrds.tokentest.ui.home
+package ro.rcsrds.tokentest.ui.fragments.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

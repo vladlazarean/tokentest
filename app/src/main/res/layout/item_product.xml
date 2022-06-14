@@ -76,10 +76,12 @@
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:inputType="number"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/addB"
                 app:layout_constraintTop_toTopOf="@+id/addB"
-                app:layout_constraintEnd_toStartOf="@+id/price"/>
+                app:layout_constraintEnd_toStartOf="@+id/price"
+                android:autofillHints="Set quantity" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
