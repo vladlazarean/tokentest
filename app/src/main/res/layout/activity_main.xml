@@ -7,14 +7,6 @@
     <data>
 
         <variable
-            name="vActivity"
-            type="ro.rcsrds.tokentest.ui.main.MainActivity" />
-
-        <variable
-            name="vViewModel"
-            type="ro.rcsrds.tokentest.ui.main.SharedActivityViewModel" />
-
-        <variable
             name="vTapInterface"
             type="ro.rcsrds.tokentest.tools.interfaces.ButtonActionsInterface" />
 
@@ -38,6 +30,18 @@
             android:layout_height="match_parent"
             tools:context=".ui.main.MainActivity">
 
+            <ImageView
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_big"
+                android:src="@drawable/baseline_close_24"
+                android:onClick="@{() -> vTapInterface.onExitTap()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment"
+                android:contentDescription="@string/exit_button" />
+
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/nav_host_fragment"
                 android:name="androidx.navigation.fragment.NavHostFragment"
@@ -49,56 +53,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:navGraph="@navigation/nav_graph" />
-
-            <ImageView
-                android:id="@+id/exit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_standard"
-                android:src="@drawable/baseline_close_24"
-                android:onClick="@{() -> vTapInterface.onExitTap()}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/recycler"
-                android:contentDescription="@string/exit_button" />
-
-            <TextView
-                android:id="@+id/basket_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_standard"
-                android:textColor="@color/purple_500"
-                android:textSize="@dimen/size_standard_text"
-                app:layout_constraintBottom_toTopOf="@+id/recycler"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                bind:setProductsNumberFromBasket="@{vViewModel.mProductsBasket}"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_recycler"
-                android:layout_marginEnd="@dimen/margin_recycler"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/basket_num"
-                bind:setActivity="@{vActivity}"
-                bind:setProductsList="@{vViewModel.mProductsList}" />
-
-            <Button
-                android:id="@+id/pay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/size_standard_text"
-                android:text="@string/pay"
-                android:onClick="@{() -> vTapInterface.onPaymentTap()}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

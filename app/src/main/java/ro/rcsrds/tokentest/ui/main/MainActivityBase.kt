@@ -11,6 +11,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.View
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import ro.rcsrds.tokentest.R
 import ro.rcsrds.tokentest.model.UiBasket
 import ro.rcsrds.tokentest.tools.interfaces.ButtonActionsInterface
@@ -29,8 +30,6 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
         lifecycle.addObserver(mViewModel)
 
         with (mBinding) {
-            vActivity = this@MainActivityBase as MainActivity
-            vViewModel = mViewModel
             vTapInterface = this@MainActivityBase
 
             lifecycleOwner = this@MainActivityBase
@@ -50,12 +49,6 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
     }
 
     override fun onPaymentTap() {
-        mBinding.navHostFragment.bringToFront()
-
-        //TODO: **1 de verificat treaba asta, de ce butonul iese in prim plan
-        //TODO: re revizuit afisarea fragmentului sa fie peste activitate
-        mBinding.pay.visibility = View.GONE
-
         Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.payFragment)
     }
 
@@ -114,8 +107,4 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
         return true
     }
 
-    fun setViewsBack() {
-        //TODO: **1 de verificat treaba asta
-        mBinding.pay.visibility = View.VISIBLE
-    }
 }
