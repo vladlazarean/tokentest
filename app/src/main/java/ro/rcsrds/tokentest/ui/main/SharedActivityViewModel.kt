@@ -19,6 +19,7 @@ class SharedActivityViewModel(application: Application): AndroidViewModel(applic
     var mGeneralErrorMessage = Throwable()
     val mFlagGetProducts = MutableLiveData(CallableStates.FLOW_NOT_STARTED)
     val mFlagUpdateBasket = MutableLiveData(CallableStates.FLOW_NOT_STARTED)
+    val mFlagUpdater = MutableLiveData(CallableStates.FLOW_NOT_STARTED)
 
     fun getProductsData() {
         mRepository.getProductsData()

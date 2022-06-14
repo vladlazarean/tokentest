@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ro.rcsrds.tokentest.R
 import ro.rcsrds.tokentest.databinding.FragmentPayBinding
+import ro.rcsrds.tokentest.ui.main.MainActivity
 import ro.rcsrds.tokentest.ui.main.SharedActivityViewModel
 
 open class PayFragmentBase: Fragment() {
@@ -19,6 +20,7 @@ open class PayFragmentBase: Fragment() {
         with (mBinding) {
             lifecycleOwner = viewLifecycleOwner
             vViewModel = mViewModel
+            vTapInterface = activity as MainActivity
             executePendingBindings()
         }
 

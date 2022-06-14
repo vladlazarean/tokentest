@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             bind:setImageRes="@{vRow.mUiProduct.mImage}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,8 +32,9 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/size_standard_text"
             android:text="@{vRow.mUiProduct.mTitle}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image" />
+            app:layout_constraintTop_toTopOf="@+id/image"
+            app:layout_constraintStart_toEndOf="@+id/image"
+            app:layout_constraintBottom_toBottomOf="@+id/image"/>
 
         <TextView
             android:id="@+id/quantity"

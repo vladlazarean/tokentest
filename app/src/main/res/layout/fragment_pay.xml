@@ -10,6 +10,10 @@
             name="vViewModel"
             type="ro.rcsrds.tokentest.ui.main.SharedActivityViewModel" />
 
+        <variable
+            name="vTapInterface"
+            type="ro.rcsrds.tokentest.tools.interfaces.ButtonActionsInterface" />
+
     </data>
 
 
@@ -23,13 +27,21 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_recycler"
-            android:layout_marginEnd="@dimen/margin_recycler"
+            android:layout_margin="@dimen/margin_standard"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/container_buttons"
             bind:setBasketList="@{vViewModel.mProductsBasket}" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_big"
+            bind:setBasketItemsSum="@{vViewModel.mProductsBasket}"
+            app:layout_constraintEnd_toEndOf="@+id/recycler"
+            app:layout_constraintTop_toBottomOf="@+id/recycler" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container_buttons"
@@ -43,24 +55,27 @@
             android:id="@+id/cash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cash"
+            android:text="@string/cash"
             android:layout_margin="@dimen/margin_standard"
+            android:onClick="@{() -> vTapInterface.onCashPaymentTap()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <Button
             android:id="@+id/card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Card"
+            android:text="@string/card"
             android:layout_margin="@dimen/margin_standard"
+            android:onClick="@{() -> vTapInterface.onCardPaymentTap()}"
             app:layout_constraintStart_toEndOf="@+id/cash"
             app:layout_constraintTop_toTopOf="parent" />
         <Button
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cancel"
+            android:text="@string/cancel"
             android:layout_margin="@dimen/margin_standard"
+            android:onClick="@{() -> vTapInterface.onCancelPaymentTap()}"
             app:layout_constraintStart_toEndOf="@+id/card"
             app:layout_constraintTop_toTopOf="parent" />
 

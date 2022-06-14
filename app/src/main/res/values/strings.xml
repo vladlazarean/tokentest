@@ -9,6 +9,9 @@
     <string name="pay">Pay</string>
     <string name="home">Home</string>
     <string name="basket_image">basket image</string>
+    <string name="cash">Cash</string>
+    <string name="card">Card</string>
+    <string name="cancel">cancel</string>
 
 
 </resources>
