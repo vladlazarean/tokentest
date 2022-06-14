@@ -17,8 +17,6 @@ import ro.rcsrds.tokentest.tools.interfaces.ButtonActionsInterface
 import ro.rcsrds.tokentest.tools.interfaces.ProductSelectInterface
 import ro.rcsrds.tokentest.ui.other.CallableStates
 
-
-
 open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
     ProductSelectInterface, ButtonActionsInterface {
 
@@ -55,6 +53,7 @@ open class MainActivityBase: AppCompatActivity(), NavigationView.OnNavigationIte
         mBinding.navHostFragment.bringToFront()
 
         //TODO: **1 de verificat treaba asta, de ce butonul iese in prim plan
+        //TODO: re revizuit afisarea fragmentului sa fie peste activitate
         mBinding.pay.visibility = View.GONE
 
         Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.payFragment)

@@ -18,7 +18,7 @@ open class PayFragmentBase: Fragment() {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_pay, container, false)
         with (mBinding) {
             lifecycleOwner = viewLifecycleOwner
-
+            vViewModel = mViewModel
             executePendingBindings()
         }
 

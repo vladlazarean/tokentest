@@ -22,3 +22,10 @@ fun setUpProductsNumberFromBasketTextView(nTextView: TextView?, nBasketList: Arr
         nTextView.setText(mTempCounter.toString())
     }
 }
+
+@BindingAdapter(value = ["setBasketItemNum"])
+fun setUpBasketItemNumTextView(nTextView: TextView?, nBasketItemNum: Int?) {
+    if (nTextView != null && nBasketItemNum != null) {
+        nTextView.setText(nBasketItemNum.toString())
+    }
+}

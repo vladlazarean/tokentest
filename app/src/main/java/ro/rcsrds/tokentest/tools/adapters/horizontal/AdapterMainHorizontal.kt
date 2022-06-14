@@ -1,4 +1,4 @@
-package ro.rcsrds.tokentest.tools.adapters
+package ro.rcsrds.tokentest.tools.adapters.horizontal
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,7 +12,9 @@ import ro.rcsrds.tokentest.tools.adapters.viewHolders.VHProduct
 import ro.rcsrds.tokentest.tools.interfaces.ProductSelectInterface
 import ro.rcsrds.tokentest.ui.main.MainActivity
 
-class AdapterMainHorizontal(private val mActivity: MainActivity): ListAdapter<UiProduct, RecyclerView.ViewHolder>(UiMainHorizontalComparator()) {
+class AdapterMainHorizontal(private val mActivity: MainActivity): ListAdapter<UiProduct, RecyclerView.ViewHolder>(
+    UiMainHorizontalComparator()
+) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

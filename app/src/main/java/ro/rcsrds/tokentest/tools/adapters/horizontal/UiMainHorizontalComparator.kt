@@ -1,4 +1,4 @@
-package ro.rcsrds.tokentest.tools.adapters
+package ro.rcsrds.tokentest.tools.adapters.horizontal
 
 import androidx.recyclerview.widget.DiffUtil
 import ro.rcsrds.tokentest.model.UiProduct
