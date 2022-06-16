@@ -1,12 +1,6 @@
 package ro.rcsrds.tokentest.tools.adapters.viewHolders
 
-import android.app.AlertDialog
-import android.text.Editable
-import android.text.InputType
-import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -37,29 +31,12 @@ class VHProduct(nItemView: View): RecyclerView.ViewHolder(nItemView) {
 
     }
 
-    fun setProductToBasket(mQuantity: String) {
+    private fun setProductToBasket(mQuantity: String) {
         if (mQuantity.isEmpty()) {
             return
         }
 
         addProductQuantityToBasket(mQuantity.toInt())
-    }
-
-    // we can keep the dialog in case if we add more description to the product or a different design,
-    // the dialog can offers another UX exp
-    private fun setDialog(nTitle: String) {
-        val mInput = EditText(itemView.context)
-        mInput.hint = "Add ammount"
-        mInput.inputType = InputType.TYPE_CLASS_NUMBER
-
-        AlertDialog.Builder(itemView.context)
-            .setTitle(nTitle)
-            .setView(mInput)
-            .setPositiveButton("OK") { dialog, which ->
-                if (!mInput.text.toString().isEmpty()) { addProductQuantityToBasket(mInput.text.toString().toInt()) }
-            }
-            .setNegativeButton("Cancel") { dialog, which -> dialog.cancel() }
-            .show()
     }
 
     private fun addProductQuantityToBasket(nQuantity: Int) {
