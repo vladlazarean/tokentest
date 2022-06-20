@@ -1,4 +1,4 @@
-package ro.rcsrds.tokentest.repository
+package ro.rcsrds.tokentest.ui.main.repository
 
 import kotlinx.coroutines.CoroutineExceptionHandler
 import ro.rcsrds.tokentest.model.UiBasket

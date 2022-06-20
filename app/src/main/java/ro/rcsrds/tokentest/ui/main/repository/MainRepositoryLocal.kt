@@ -1,4 +1,4 @@
-package ro.rcsrds.tokentest.repository
+package ro.rcsrds.tokentest.ui.main.repository
 
 import ro.rcsrds.tokentest.R
 import ro.rcsrds.tokentest.model.UiProduct

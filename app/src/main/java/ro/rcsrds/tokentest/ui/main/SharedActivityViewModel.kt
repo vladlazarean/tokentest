@@ -6,7 +6,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import ro.rcsrds.tokentest.model.UiBasket
 import ro.rcsrds.tokentest.model.UiProduct
-import ro.rcsrds.tokentest.repository.MainRepository
+import ro.rcsrds.tokentest.ui.main.repository.MainRepository
 import ro.rcsrds.tokentest.ui.other.CallableStates
 
 class SharedActivityViewModel(application: Application): AndroidViewModel(application), LifecycleObserver {
