@@ -14,7 +14,7 @@ open class MainTapHandler:  AppCompatActivity(), NavigationView.OnNavigationItem
     ButtonActionsInterface {
 
     override fun onExitTap() {
-        finishAffinity()
+        super.onBackPressed()
     }
 
     override fun onPaymentTap() {

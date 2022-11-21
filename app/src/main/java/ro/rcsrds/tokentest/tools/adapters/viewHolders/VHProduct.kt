@@ -18,7 +18,8 @@ class VHProduct(nItemView: View): RecyclerView.ViewHolder(nItemView) {
     fun bindUiData(nRow: UiProduct, nInterface: ProductSelectInterface) {
         mInterface = nInterface
         mRow = nRow
-
+        // check if quantity was previous
+        // check dataStore - set editText
         DataBindingUtil.getBinding<ItemProductBinding>(itemView)?.let {
             it.vRow = nRow
             it.addB.setOnClickListener { onClick ->

@@ -45,6 +45,7 @@ open class MainActivityBase: MainTapHandler(), ProductSelectInterface {
 
                     CallableStates.ERROR -> {
                         // show dialog or send error to crashlytics or other catchers
+                        mViewModel.mGeneralErrorMessage
                     }
                     else -> {}
                 }
